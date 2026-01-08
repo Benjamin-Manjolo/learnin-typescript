@@ -10,7 +10,26 @@ function App() {
   const greet = (personName: string): string => {
     return `Hello ${personName}! Welcome to the TypeScript world 🚀`;
   };
+  //typescript basic syntax 
+  interface Person {
+  name: string;
+  age: number;
+  isDeveloper: boolean;
+}
 
+const benjamin:Person = {
+  name:"Benjamin",
+  age:22,
+  isDeveloper:true,
+
+}
+
+  // Errors:
+// const wrong: Person = {
+//   name: "Ben",       // OK
+//   age: "25",         // Error: Type 'string' is not assignable to 'number'
+//   job: "Developer"   // Error: Object literal may only specify known properties
+// };
   return (
     <div className="App" style={{ padding: "20px", fontFamily: "Arial" }}>
       <h1>{greet(name)}</h1>
