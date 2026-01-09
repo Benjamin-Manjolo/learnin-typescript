@@ -1,3 +1,7 @@
+import Greeting from "./components/Greeting";
+
+
+
 function App() {
   const name: string = "Benjamin";
   const age: number = 25;
@@ -38,11 +42,23 @@ const benjamin:Person = {
 
       {/* Task 3: Display hobbies in a list */}
       <h2>My Hobbies:</h2>
+
       <ul>
         {hobbies.map((hobby, index) => (
           <li key={index}>{hobby}</li>
         ))}
       </ul>
+     <Greeting
+        name="Benjamin"
+        age={25}
+        hobbies={["Coding", "Gaming", "Football"]}
+        isDeveloper={true}
+      />
+
+      {/* This would cause an error: */}
+      {/* <Greeting name="Ben" hobbies={["Reading"]} /> */}
+      {/* Missing isDeveloper (required) */}
+    </div>
     </div>
   );
 }
