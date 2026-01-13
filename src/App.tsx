@@ -1,10 +1,12 @@
 import Greeting from "./components/Greetings";
 import UserCard from "./components/UserCard";
+import Button from './components/Button';
 
 function App() {
-  const handleClick = () => {
-    alert("User card clicked! 👋");
-  };
+  const handleClick =(e:React.MouseEvent<HTMLButtonElement>) =>{
+    console.log('Clicked',e.currentTarget);
+    alert ('Button works');
+  }
 
   // Basic TypeScript variables
   const name: string = "Benjamin";
@@ -56,7 +58,7 @@ function App() {
       <div style={{ padding: "20px", fontFamily: "system-ui, sans-serif" }}>
         <h1>User Cards Demo</h1>
 
-        <UserCard
+        {/* <UserCard
           user={{
             name: "Benjamin Manjolo",
             email: "benjamin@example.com",
@@ -72,7 +74,42 @@ function App() {
           }}
           onClick={handleClick}
         />
+        <UserCard
+        user={
+          {name:"kurupt",
+          email:"chonde@he.com"}
+         
+        }
+         onClick={handleClick}
+        /> */}
+
       </div>
+      <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <h1>Button Variants Demo</h1>
+
+      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+        <Button variant="primary" onClick={handleClick}>
+          Primary
+        </Button>
+
+        <Button variant="secondary" size="sm">
+          Small Secondary
+        </Button>
+
+        <Button variant="danger" size="lg" fullWidth>
+          Large Danger Full Width
+        </Button>
+
+        <Button variant="ghost" disabled>
+          Disabled Ghost
+        </Button>
+
+        {/* With custom class */}
+        <Button className="extra-fancy" variant="primary">
+          Fancy Primary
+        </Button>
+      </div>
+    </div>
     </>
   );
 }
